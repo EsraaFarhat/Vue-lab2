@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-primary" @click.prevent="addEvent">Add</button>
+    <button class="btn btn-primary btn-lg" @click.prevent="addEvent">Add</button>
 </template>
 <script>
 export default {

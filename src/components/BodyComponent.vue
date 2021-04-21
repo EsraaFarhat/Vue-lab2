@@ -14,10 +14,10 @@
                     <td>{{student.name}}</td>
                     <td>{{student.city}}</td>
                 </tr>
-                <tr class="alert alert-info text-center">
+                <tr>
                     <!-- <td colspan="1"><button class="btn btn-primary" @click.prevent="addStudent">Add</button></td> -->
                     <td colspan="1"><addComponent @addBtnClicked="addStudent"/></td>
-                    <td colspan="2"><h3> Total number of student {{students.length}}</h3>
+                    <td colspan="2" class="alert alert-info text-center"><h5> Total number of student {{students.length}}</h5>
                        </td>
                 </tr>
             </tbody>
