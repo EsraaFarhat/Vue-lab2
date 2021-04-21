@@ -15,7 +15,8 @@
                     <td>{{student.city}}</td>
                 </tr>
                 <tr class="alert alert-info text-center">
-                    <td colspan="1"><button class="btn btn-primary" @click.prevent="addStudent">Add</button></td>
+                    <!-- <td colspan="1"><button class="btn btn-primary" @click.prevent="addStudent">Add</button></td> -->
+                    <td colspan="1"><addComponent @addBtnClicked="addStudent"/></td>
                     <td colspan="2"><h3> Total number of student {{students.length}}</h3>
                        </td>
                 </tr>
@@ -26,33 +27,24 @@
 </template>
 <script>
 import students from '../students.js'
+import addComponent from './addComponent.vue'
 
 export default {
     data(){
         return {
             students: students,
-            dummyStudents:[
-                {name:"Aya", city:"Cairo"},
-                {name:"Ahmed", city:"Alex"},
-                {name:"Ali", city:"Cairo"},
-                {name:"Mohamed", city:"Mansoura"},
-            ],
-            index:0,
-            targetStudent: null,
             id: null,
         }
     },
     methods:{
-        addStudent(){
-            if(this.index >= this.dummyStudents.length) return;
-
-            this.targetStudent= this.dummyStudents[this.index];
+        addStudent(targetStudent){
             this.id = this.students[this.students.length-1].id + 1;
 
-            this.students.push({id: this.id ,name: this.targetStudent.name, city: this.targetStudent.city});
-            
-            this.index++;
+            this.students.push({id: this.id ,name: targetStudent.name, city: targetStudent.city});    
         }
+    },
+    components:{
+        addComponent,
     }
 }
 </script>
